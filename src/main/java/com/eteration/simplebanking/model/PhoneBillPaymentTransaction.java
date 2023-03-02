@@ -7,7 +7,7 @@ public class PhoneBillPaymentTransaction extends WithdrawalTransaction {
 
 
     public PhoneBillPaymentTransaction(String payee, String phoneNumber, double amount) {
-        //super(amount);
+        super(amount);
         this.phoneNumber = phoneNumber;
         this.payee = payee;
     }

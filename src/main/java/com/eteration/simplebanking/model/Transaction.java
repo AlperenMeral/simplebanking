@@ -32,6 +32,10 @@ public abstract class Transaction {
         return date;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public double getAmount() {
         return amount;
     }

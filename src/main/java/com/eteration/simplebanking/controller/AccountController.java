@@ -5,6 +5,7 @@ import com.eteration.simplebanking.services.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.UUID;
 
 // This class is a place holder you can change the complete implementation
@@ -41,6 +42,7 @@ public class AccountController {
         }
         creditRequest.setApprovalCode(okTransaction().getApprovalCode());
         creditRequest.setAmount(creditRequest.getAmount());
+        creditRequest.setDate(new Date());
         account.post(creditRequest);
         TransactionStatus okTransaction = okTransaction();
         accountService.saveAccount(account);
@@ -68,6 +70,7 @@ public class AccountController {
         WithdrawalTransaction debitTransaction = new WithdrawalTransaction();
         debitTransaction.setApprovalCode(okTransaction().getApprovalCode());
         debitTransaction.setAmount(debitRequest.getAmount());
+        debitTransaction.setDate(new Date());
         account.post(debitTransaction);
         TransactionStatus okTransaction = okTransaction();
         accountService.saveAccount(account);
